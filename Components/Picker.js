@@ -12,11 +12,10 @@ const Picker = ()=>{
 
     const onChange = (event, selectedDate) => {
         const currentDate = selectedDate || date;
-    
         
         let tempDate = new Date(currentDate);
         let formatedDate = `Date: ${tempDate.getDate()} / ${tempDate.getMonth()+1} / ${tempDate.getFullYear()}`;
-        let formatedTime =  `Time: ${tempDate.getHours()} :  ${tempDate.getMinutes()}`;
+        let formatedTime = `Time ${tempDate.getHours() % 12 || 12}:${tempDate.getMinutes()} ${tempDate.getHours() >= 12 ? 'PM' : 'AM'}`;
     
         setText(`${"\n"}${formatedDate} \n  ${formatedTime} `);
 
@@ -36,16 +35,11 @@ const Picker = ()=>{
 
     return (
         <View style={styles.container}>
-            <Text style={{fontSize:30 ,fontWeight: 'bold', marginBottom: 80}}>Select your appointment: </Text>
-            <Text style={{fontWeight: 'bold', fontSize: 20}}>
-                {text}
-            </Text>
+            <Text style={{fontSize:25 ,fontWeight: 'bold', marginBottom: 30}}>select your appointment down below: </Text>
             <View style={{margin: 20, borderRadius: 5, borderColor: 'black', borderWidth: 4}}> 
                 <Button  
                     title="Date Picker"
-                    onPress={()=>showMode('date')
-                   
-                    
+                    onPress={()=>showMode('date')        
                 }
                 />
             </View>
@@ -70,6 +64,10 @@ const Picker = ()=>{
             }
 
             <StatusBar />
+            <Text style={{fontSize:25, marginTop: 40}}>Appointment scheduled for: </Text>
+            <Text style={{fontWeight: 'bold', fontSize: 20}}>
+                {text}
+            </Text>
         </View>
     )
 

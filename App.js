@@ -31,7 +31,7 @@ export default function App() {
         <Tab.Screen name="Stopwatch"
             component={Stopwatch}
             options={{ 
-                title: 'Stopwatch', 
+                title: 'Stop Watch', 
                 headerStyle: { backgroundColor: 'gray' }, 
                 headerTintColor: 'black', 
             }} 
@@ -40,7 +40,7 @@ export default function App() {
         <Tab.Screen name="Picker" 
             component={Picker} 
             options={{ 
-                title: 'Picker', 
+                title: 'Select Appointment', 
                 headerStyle: { backgroundColor: 'gray' }, 
                 headerTintColor: 'black', 
             }}
